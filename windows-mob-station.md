@@ -5,13 +5,8 @@ A clean development workstation in the cloud, installed with every tool you migh
 Let me know what you think and how you are using it 🤙
 
 
-### Install Development Environment
+    https://raw.githubusercontent.com/mob-programming-meetup/cloud-desktop/master/install.windows.ps1 | Invoke-Expression
 
-Open an administrative PowerShell, and copy&paste the following command:
-
-    Invoke-WebRequest -UseBasicParsing https://raw.githubusercontent.com/mob-programming-meetup/cloud-desktop/master/install.windows.ps1 | Invoke-Expression
-
-Note: Have a look at [install.windows.ps1](./install.windows.ps1) first. You might want to check if the installed packages are not suspicious and/or adapt the script to your own needs. PRs are always welcome 🎉
 
 ### AWS Setup
 
@@ -40,6 +35,7 @@ Connect to the VM in the cloud via RDP:
 * Windows: Open it with the Remote Desktop application.
 * MacOS: Install the Microsft Remote Desktop App from the Mac App Store: https://apps.apple.com/app/microsoft-remote-desktop/id1295203466
 
+* Create a .bat file 
 Run the script mentioned above from an administrative Powershell console to install the developer tools. Add additional chocolatey packages (https://chocolatey.org/packages) to the list if necessary. Note: Let me know what is missing by submitting an issue or a Pull Request to this project. 🙏
 
 After the installation script finished (~ 60-90 min):
