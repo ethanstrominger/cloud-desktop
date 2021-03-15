@@ -37,14 +37,26 @@ Create VM in the cloud:
 Connect to the VM in the cloud via RDP:
 * Download the RDP file from the menu next to the instance
 * Set + copy the windows password from the same menu.
-* Windows: Open it with the Remote Desktop application.
-* MacOS: Install the Microsft Remote Desktop App from the Mac App Store: https://apps.apple.com/app/microsoft-remote-desktop/id1295203466
+* Log in to the machine
+    * Windows: Open it with the Remote Desktop application.
+    * MacOS: Install the Microsft Remote Desktop App from the Mac App Store: https://apps.apple.com/app/microsoft-remote-desktop/id1295203466
+* Go to the Accounts Settings/Sign-in Options to change the Windows password. You might choose one which is more simple to type, as you can not copy & paste the password when you need to unlock the machine via Anydesk.
+* Create a setup file
+    * Create a directory c:\bat
+    * Use notepad to create a file dev-setup.ps1 in that directory
+    * Paste in contents from https://raw.githubusercontent.com/mob-programming-meetup/cloud-desktop/master/install.windows.ps1
+    * Edit to add or remove choclatey packages for your favotite development packages - AnyDesk is recommended at a minimum
+* Run file as administrator
+    * Start cmd shell or Powershell
+    * Run the following command:  Start-Process powershell -Verb runAs
+    * Run: \bat\install.windows.ps1
+  
 
-Run the script mentioned above from an administrative Powershell console to install the developer tools. Add additional chocolatey packages (https://chocolatey.org/packages) to the list if necessary. Note: Let me know what is missing by submitting an issue or a Pull Request to this project. 🙏
+**After the installation script finished (~ 30-90 min):**
 
-After the installation script finished (~ 60-90 min):
-* Start Anydesk or Teamviewer and configure a pre-defined password for easier connection of your participants.
-* Go to the Accounts Settings/Sign-in Options to change the Windows password. You might choose one which is more simple to type, as you can not copy&paste the password when you need to unlock the machine via Anydesk or Teamviewer.
+* Open installed software packages you plan on using which will initiate installation
+* Start Anydesk to configure a pre-defined password for easier connection of your participants.
+
 * Restart the machine.
 
 After the preparation, you can shutdown the instance and save a machine image to avoid running costs when the instance is not used (delete the instance after successfully creating the machine image as you are still charged for the attached disk otherwise). Generally, it's recommended to re-install the instance from scratch for each session. This way you don't have to worry about security updates or misconfiguration when giving somebody else unattended access.
